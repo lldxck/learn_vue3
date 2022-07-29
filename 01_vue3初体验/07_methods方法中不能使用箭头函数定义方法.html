@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <template id="demo">
+      <div>{{message}}</div>
+      <div>{{num}}</div>
+      <button @click="getNum01">按钮01</button>
+      <button @click="getNum02">按钮01</button>
+    </template>
+  </body>
+  <script src="../js/vue@3.2.36.js"></script>
+  <script>
+    Vue.createApp({
+      template: "#demo",
+      data: function () {
+        return {
+          message: "hello",
+          num: 100,
+        };
+      },
+      methods: {
+        getNum01() {
+          console.log(this); //Proxy
+          console.log(this.num); //100
+        },
+        // methods方法里面不能使用箭头函数，使用箭头函数this就会是window
+        getNum02: () => {
+          console.log(this); //window
+          console.log(this.num); //undefined
+        },
+      },
+    }).mount("#app");
+  </script>
+</html>
