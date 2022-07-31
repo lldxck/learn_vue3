@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <template id="demo">
+      <!-- 基本使用 -->
+      <div :style="{color:'red','fontSize':'20px'}">哈哈哈</div>
+      <div :style="{color:textColor,'font-size':'30px'}">哈哈哈</div>
+      <div :style="{color:'red',fontSize:fontSize+'px'}">哈哈哈</div>
+      <!-- 绑定data中属性 -->
+      <div :style="styleObj">哈哈哈</div>
+      <!-- 调用一个方法 -->
+      <div :style="getStyle()">哈哈哈</div>
+    </template>
+  </body>
+  <script src="../js/vue@3.2.36.js"></script>
+  <script>
+    const App = {
+      template: "#demo",
+      data() {
+        return {
+          textColor: "green",
+          fontSize: 28,
+          styleObj: {
+            color: "yellow",
+            fontSize: "24px",
+          },
+        };
+      },
+      methods: {
+        getStyle() {
+          return {
+            color: "orange",
+            fontSize: "40px",
+          };
+        },
+      },
+    };
+    Vue.createApp(App).mount("#app");
+  </script>
+</html>

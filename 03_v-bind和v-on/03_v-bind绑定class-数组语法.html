@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <template id="demo">
+      <div :class="['active','title',className]">基本使用</div>
+      <div :class="['active',isTitle?'title':'']">表达式</div>
+      <div :class="['active',{title:isTitle}]">对象</div>
+    </template>
+  </body>
+  <script src="../js/vue@3.2.36.js"></script>
+  <script>
+    const App = {
+      template: "#demo",
+      data() {
+        return {
+          className: "abc",
+          isTitle: true,
+        };
+      },
+    };
+    Vue.createApp(App).mount("#app");
+  </script>
+</html>

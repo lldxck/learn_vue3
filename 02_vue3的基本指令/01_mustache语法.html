@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <template id="demo">
+      <!-- mustache语法的基本使用 -->
+      <div>{{message}}</div>
+      <div>{{message }} - {{counter}}</div>
+      <!-- 可以是一个表达式 -->
+      <div>{{counter*10}}</div>
+      <div>{{message.split(' ').reverse().join(' ')}}</div>
+      <!-- 可以调用函数 -->
+      <div>{{getHandleMsg()}}</div>
+      <!-- 可以是计算属性 -->
+      <div>{{data}}</div>
+      <!-- 三元运算符 -->
+      <div>{{isShow?'哈哈哈':'呵呵呵'}}</div>
+      <button @click="toggle">切换</button>
+    </template>
+  </body>
+  <script src="../js/vue@3.2.36.js"></script>
+  <script>
+    const App = {
+      template: "#demo",
+      data() {
+        return {
+          message: "hello world",
+          counter: 100,
+          isShow: true,
+        };
+      },
+      computed: {
+        data() {
+          return 123;
+        },
+      },
+      methods: {
+        getHandleMsg() {
+          return this.message.split(" ").reverse().join(" ");
+        },
+        toggle() {
+          this.isShow = !this.isShow;
+        },
+      },
+    };
+    Vue.createApp(App).mount("#app");
+  </script>
+</html>

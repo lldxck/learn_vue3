@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <template id="demo">
+      <!-- v-bind的基本使用 -->
+      <!-- vue3允许有个多根标签 -->
+      <img v-bind:src="imgUrl" alt="" />
+      <a v-bind:href="href">百度</a>
+      <!-- v-bind的语法糖 -->
+      <img :src="imgUrl" alt="" />
+      <a :href="href"> 百度一下</a>
+    </template>
+  </body>
+  <script src="../js/vue@3.2.36.js"></script>
+  <script>
+    const App = {
+      template: "#demo",
+      data() {
+        return {
+          imgUrl:
+            "http://p2.music.126.net/txbtvCGEW34GjJC_jPenJg==/18572950418492239.jpg?param=140y140",
+          href: "https://www.baidu.com",
+        };
+      },
+    };
+    Vue.createApp(App).mount("#app");
+  </script>
+</html>

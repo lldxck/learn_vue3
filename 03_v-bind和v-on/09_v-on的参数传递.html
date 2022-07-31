@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <template id="demo">
+      <!--  -->
+      <button @click="btn1Click">按钮1</button>
+      <button @click="btn2Click('哈哈哈',18,$event)">按钮2</button>
+      <button @click="btn3Click($event,'哈哈哈',18)">按钮3</button>
+    </template>
+  </body>
+  <script src="../js/vue@3.2.36.js"></script>
+  <script>
+    const App = {
+      template: "#demo",
+      data() {
+        return {};
+      },
+      methods: {
+        btn1Click(event) {
+          console.log(event);
+        },
+        btn2Click(name, age, event) {
+          console.log(name, age, event);
+        },
+        btn3Click(event, name, age) {
+          console.log(event, name, age);
+        },
+      },
+    };
+    Vue.createApp(App).mount("#app");
+  </script>
+</html>
