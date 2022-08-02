@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <template id="demo">
+      <!-- 
+            v-if和v-show的区别？
+            1.v-if不显示的时候直接不进行DOM的渲染，v-show不显示的时候DOM会进行渲染只是会添加一个display:none的行内样式
+            2.当DOM结构频繁切换的时候选择v-show,否则选择v-if
+         -->
+      <div v-if="isShow">哈哈哈</div>
+      <div v-show="isShow">嘿嘿嘿</div>
+      <button @click="toggle">切换</button>
+    </template>
+  </body>
+  <script src="../js/vue@3.2.36.js"></script>
+  <script>
+    const App = {
+      template: "#demo",
+      data() {
+        return {
+          isShow: true,
+        };
+      },
+      methods: {
+        toggle() {
+          this.isShow = !this.isShow;
+        },
+      },
+    };
+    Vue.createApp(App).mount("#app");
+  </script>
+</html>

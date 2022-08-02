@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <template id="demo">
+      <template v-if="isHa">
+        <div>哈哈哈</div>
+        <div>哈哈哈</div>
+        <div>哈哈哈</div>
+      </template>
+      <template v-else>
+        <div>呵呵呵</div>
+        <div>呵呵呵</div>
+        <div>呵呵呵</div>
+      </template>
+      <button @click="toggle">切换</button>
+    </template>
+  </body>
+  <script src="../js/vue@3.2.36.js"></script>
+  <script>
+    const App = {
+      template: "#demo",
+      data() {
+        return {
+          isHa: true,
+        };
+      },
+      methods: {
+        toggle() {
+          this.isHa = !this.isHa;
+        },
+      },
+    };
+    Vue.createApp(App).mount("#app");
+  </script>
+</html>
