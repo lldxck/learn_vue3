@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <template id="demo">
+      <div>{{info.name}}-{{info.age}}</div>
+      <button @click="changeInfoName">改变info.name</button>
+      <button @click="changeInfo">改变info</button>
+    </template>
+  </body>
+  <script src="../js/vue@3.2.36.js"></script>
+  <script>
+    const App = {
+      template: "#demo",
+      data() {
+        return {
+          info: {
+            name: "哈哈哈",
+            age: 18,
+          },
+        };
+      },
+      watch: {
+        // 侦听对象中的某一个属性
+        // "info.name": (newName, oldName) => {
+        //   console.log(newName, oldName);
+        // },
+      },
+      created() {
+        /*
+         *   $watch的API侦听
+         *   第一个参数：侦听的数据源
+         *   第二个参数：侦听的回调函数
+         *   第三个参数：配置选项，例如deep、immediate
+         */
+        const unwatch = this.$watch(
+          "info",
+          (newInfo, oldInfo) => {
+            console.log(newInfo, oldInfo);
+          },
+          {
+            deep: true,
+            immediate: true,
+          }
+        );
+        // 取消侦听
+        // unwatch()
+      },
+      methods: {
+        changeInfoName() {
+          this.info.name = "嘎嘎嘎";
+        },
+        changeInfo() {
+          this.info = {
+            name: "哇哇哇",
+            age: 23,
+          };
+        },
+      },
+    };
+    Vue.createApp(App).mount("#app");
+  </script>
+</html>
