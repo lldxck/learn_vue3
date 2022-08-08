@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <template id="demo">
+      <!-- lazy修饰符 -->
+      <!-- <input type="text" v-model.lazy="message" /> -->
+
+      <!-- number修饰符 -->
+      <input type="text" v-model.number="count" />
+      <div>{{count}}</div>
+      <button @click="checkType">查看类型</button>
+
+      <!-- trim修饰符 -->
+      <input type="text" v-model.trim="message">
+      <div>{{message}}</div>
+      <button @click="getResult">获取结果</button>
+    </template>
+  </body>
+  <script src="../js/vue@3.2.36.js"></script>
+  <script>
+    const App = {
+      template: "#demo",
+      data() {
+        return {
+          message: "hello world",
+          count: 100,
+        };
+      },
+      methods: {
+        input(event) {
+          console.log(event.target.value);
+        },
+        inputChange(event) {
+          console.log(event.target.value);
+        },
+        checkType() {
+          console.log('类型是：',typeof this.count);
+        },
+        getResult(){
+            console.log('结果是：',this.message);
+        }
+      },
+    };
+    Vue.createApp(App).mount("#app");
+  </script>
+</html>

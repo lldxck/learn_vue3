@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <template id="demo">
+      <div>{{message}}</div>
+      <component-a></component-a>
+      <component-b></component-b>
+    </template>
+  </body>
+  <script src="../js/vue@3.2.36.js"></script>
+  <script>
+    const App = {
+      template: "#demo",
+      data() {
+        return {
+          message: "hello world",
+        };
+      },
+    };
+    const app = Vue.createApp(App);
+    // 注册全局组件：全局注册组件则该组件可以在任何的组件模板中使用
+    app.component("component-a", {
+      template: `<div>我是组件a</div><component-b/>`,
+    });
+    app.component("component-b", {
+      template: `<div>我是组件b</div>`,
+    });
+    app.mount("#app");
+  </script>
+</html>
