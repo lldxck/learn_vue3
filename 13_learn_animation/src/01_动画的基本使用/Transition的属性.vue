@@ -5,6 +5,7 @@
     <transition
       name="demo"
       type="transition"
+      mode="out-in"
       :duration="{ enter: 800, leave: 1000 }"
       appear
     >
