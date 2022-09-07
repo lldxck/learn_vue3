@@ -9,6 +9,7 @@ import { createApp } from "vue";
 // import 'animate.css'
 // import App from "./02_结合第三方库使用/Gsap.vue";
 // import App from "./02_结合第三方库使用/Gsap数字动画.vue";
-import App from "./03_列表动画的使用/App.vue";
+// import App from "./03_列表动画的使用/列表的添加删除以及重新排序.vue";
+import App from "./03_列表动画的使用/列表的交错过渡动画.vue";
 
 createApp(App).mount("#app");
