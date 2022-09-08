@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 // import App from "./01_mixin和extends/01_mixin的基本使用.vue";
-import App from "./01_mixin和extends/02_extends的基本使用.vue";
+// import App from "./01_mixin和extends/02_extends的基本使用.vue";
+import App from "./02_compositionAPI基础/App.vue";
 
 const app = createApp(App);
 // //  全局混入
