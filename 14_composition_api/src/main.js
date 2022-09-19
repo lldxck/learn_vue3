@@ -13,7 +13,7 @@ import { createApp } from "vue";
 // import App from "./04_computed和watch/06_watch的选项.vue";
 // import App from "./05_生命周期钩子/App.vue";
 // import App from "./06_provide和inject/App.vue";
-// import App from "./07_componentAPI的练习/App.vue";
+// import App from "./07_compositionAPI的练习/App.vue";
 import App from "./08_setup顶层编写方式/App.vue";
 
 const app = createApp(App);
