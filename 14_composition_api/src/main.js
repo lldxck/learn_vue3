@@ -10,7 +10,10 @@ import { createApp } from "vue";
 // import App from "./04_computed和watch/03_watchEffect的执行时机以及ref引用.vue";
 // import App from "./04_computed和watch/04_watch侦听的数据源类型.vue";
 // import App from "./04_computed和watch/05_watch侦听多个数据源.vue";
-import App from "./04_computed和watch/06_watch的选项.vue";
+// import App from "./04_computed和watch/06_watch的选项.vue";
+// import App from "./05_生命周期钩子/App.vue";
+import App from "./06_provide和inject/App.vue";
+// import App from "./07_componentAPI的练习/App.vue";
 
 const app = createApp(App);
 // //  全局混入
