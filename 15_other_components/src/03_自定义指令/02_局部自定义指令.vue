@@ -1,0 +1,20 @@
+<template>
+  <div>
+    <input type="text" v-focus />
+  </div>
+</template>
+
+<script>
+export default {
+  // 局部自定义指令
+  //   directives: {
+  //     focus: {
+  //       mounted(el, bindings, vnode, preVnode) {
+  //         el.focus();
+  //       },
+  //     },
+  //   },
+};
+</script>
+
+<style scoped></style>
