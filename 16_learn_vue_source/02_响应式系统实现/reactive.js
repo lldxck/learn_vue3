@@ -3,6 +3,7 @@ class Dep {
     this.subscribers = new Set();
   }
 
+  // 收集副作用
   depend() {
     if (activeEffect) {
       this.subscribers.add(activeEffect);

@@ -69,6 +69,7 @@ const patch = (n1, n2) => {
 
     // 2.2删除旧的节点
     for (key in oldProps) {
+      const value = oldProps(key);
       // 删除不在newProps中的属性
       if (!(key in newProps)) {
         if ((key, startsWith("on"))) {
