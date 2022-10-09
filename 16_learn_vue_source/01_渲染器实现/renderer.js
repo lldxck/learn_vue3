@@ -69,14 +69,14 @@ const patch = (n1, n2) => {
 
     // 2.2删除旧的节点
     for (key in oldProps) {
-      const value = oldProps(key);
+      const oldValue = oldProps[key];
+      // 无论新节点存在该事件不，均删除（在添加的时候已经进行添加了）
+      if (key.startsWith("on")) {
+        el.removeEventListener(key.slice(2).toLowerCase(), oldValue);
+      }
       // 删除不在newProps中的属性
       if (!(key in newProps)) {
-        if ((key, startsWith("on"))) {
-          el.removeEventListener(key.slice(2).toLowerCase(), value);
-        } else {
-          el.removeAttribute(key);
-        }
+        el.removeAttribute(key);
       }
     }
 
@@ -102,7 +102,7 @@ const patch = (n1, n2) => {
         });
       } else {
         // newChildren oldChildren都是数组
-        const commonLength = Math.min(oldChildren, newChildren);
+        const commonLength = Math.min(oldChildren.length, newChildren.length);
         for (let i = 0; i < commonLength; i++) {
           patch(oldChildren[i], newChildren[i]);
         }
