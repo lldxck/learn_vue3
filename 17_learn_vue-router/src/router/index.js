@@ -12,6 +12,7 @@ const routes = [
   },
   {
     path: "/home",
+    name: "home",
     // 路由懒加载
     component: () =>
       import(/* webpackChunkName:'home-chunk'*/ "../pages/Home.vue"),
@@ -21,6 +22,20 @@ const routes = [
       age: 18,
       height: 1.88,
     },
+    children: [
+      {
+        path: "",
+        redirect: "/home/message",
+      },
+      {
+        path: "message",
+        component: () => import("../pages/HomeMessage.vue"),
+      },
+      {
+        path: "shops",
+        component: () => import("../pages/HomeShops.vue"),
+      },
+    ],
   },
   {
     path: "/about",
@@ -48,5 +63,23 @@ const router = createRouter({
   routes,
   history: createWebHistory(),
 });
+
+// 动态添加路由
+router.addRoute({
+  path: "/category",
+  name: "category",
+  component: () => import("../pages/Category.vue"),
+});
+// 添加动态路由-二级路由
+const homeRouter = router.addRoute("home", {
+  path: "moment",
+  component: () => import("../pages/HomeMoment.vue"),
+});
+
+// 删除路由
+// removeRoute传入名称删除
+router.removeRoute("category");
+// 使用addRoute的返回值
+homeRouter();
 
 export default router;
