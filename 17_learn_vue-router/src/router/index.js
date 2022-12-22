@@ -47,6 +47,10 @@ const routes = [
     path: "/user/:userName/id/:id",
     component: () => import("../pages/User.vue"),
   },
+  {
+    path: "/login",
+    component: () => import("../pages/Login.vue"),
+  },
   // 捕获所有路由或404 Not Found路由
   {
     path: "/:pathMatch(.*)*",
@@ -81,5 +85,24 @@ const homeRouter = router.addRoute("home", {
 router.removeRoute("category");
 // 使用addRoute的返回值
 homeRouter();
+
+/**
+ * 路由前置守卫
+ * 参数：
+ * to:即将要进入的目标 Route对象
+ * from:当前导航正要离开的路由 Route对象
+ *
+ * 返回值：
+ * false:不进行导航
+ * undefined、true或者不写返回值：进行默认导航
+ * 字符串路由地址，或者路由对象：跳转到对应的路径中
+ *
+ */
+router.beforeEach((to, form) => {
+  const token = localStorage.getItem("token");
+  if (to.path.indexOf("/home") !== -1 && !token) {
+    return "/login";
+  }
+});
 
 export default router;
