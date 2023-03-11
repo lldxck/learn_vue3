@@ -4,11 +4,11 @@
   <div>Home:{{ name }}</div>
   <div>Home:{{ age }}</div>
   <div>Home:{{ height }}</div> -->
-  <div>Home:{{ sCounter }}</div>
   <div>Home:{{ storeState.counter }}</div>
   <div>Home:{{ storeState.name }}</div>
   <div>Home:{{ storeState.age }}</div>
   <div>Home:{{ storeState.height }}</div>
+  <div>Home:{{ storeState2.sCounter }}</div>
 </template>
 
 <!-- optionsAPI -->
@@ -28,18 +28,11 @@ export default {
 </script> -->
 <!-- compositionAPI -->
 <script setup name="home">
-import { computed } from "vue";
-import { useStore, mapState } from "vuex";
+import { useState } from "../hooks/useState";
 
-const store = useStore();
-
-const sCounter = computed(() => store.state.counter);
-
-const storeStateFns = mapState(["counter", "name", "age", "height"]);
-const storeState = {};
-Object.keys(storeStateFns).forEach((fnKey) => {
-  const fn = storeStateFns[fnKey].bind({ $store: store });
-  storeState[fnKey] = computed(fn);
+const storeState = useState(["counter", "name", "age", "height"]);
+const storeState2 = useState({
+  sCounter: (state) => state.counter,
 });
 </script>
 <style lang="scss" scoped></style>

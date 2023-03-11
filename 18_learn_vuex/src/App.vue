@@ -1,9 +1,9 @@
 <template>
   <home />
-  <div>App:{{ $store.state.counter }}</div>
+  <!-- <div>App:{{ $store.state.counter }}</div>
   <div>App:{{ store.state.counter }}</div>
   <button @click="increment">+1</button>
-  <button @click="decrement">-1</button>
+  <button @click="decrement">-1</button> -->
 </template>
 
 <!-- optionsAPI -->
@@ -25,7 +25,11 @@ export default {
 <!-- compositionsAPI -->
 <script setup>
 import { useStore } from "vuex";
-import Home from './pages/Home.vue'
+// import Home from './pages/01.state和mapState.vue'
+// import Home from './pages/02.getters和mapGetters.vue'
+// import Home from './pages/03.mutation和mapMutations.vue'
+// import Home from './pages/04.actions和mapActions.vue'
+import Home from './pages/05.modules.vue'
 const store = useStore();
 const increment = () => {
   store.commit("increment");

@@ -1,22 +1,23 @@
 import { createStore } from "vuex";
 
-// 创建store实例
+import home from "./modules/home";
+import user from "./modules/user";
+
 const store = createStore({
   state() {
     return {
-      counter: 0,
-      name: "Jack",
-      age: 18,
-      height: 1.88,
+      rootCounter: 0,
     };
   },
   mutations: {
+    // state 对象是模块的局部状态
     increment(state) {
-      state.counter++;
+      state.rootCounter++;
     },
-    decrement(state) {
-      state.counter--;
-    },
+  },
+  modules: {
+    home,
+    user,
   },
 });
 
