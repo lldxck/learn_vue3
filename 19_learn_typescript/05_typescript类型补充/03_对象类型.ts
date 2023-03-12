@@ -4,3 +4,4 @@ function printPoint(point: { x: number; y: number }) {
 }
 
 printPoint({ x: 100, y: 200 });
+export {};
