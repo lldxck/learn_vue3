@@ -11,4 +11,3 @@ function printId(id: IdType) {}
 
 function printPoint(point: PointType){}
 
-export {};
